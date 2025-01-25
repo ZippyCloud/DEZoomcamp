@@ -1,21 +1,8 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-}
-
 provider "aws" {
-  region = var.aws_region
+  region = "eu-central-1"
 }
 
-resource "aws_instance" "instance_1" {
-  ami           = var.aws_ami_id
-  instance_type = var.aws_instance_type
-
-  tags = {
-    Name = "TerraformTestInstance"
-  }
+module "ec2" {
+  source    = "./modules/free_tier_ec2"
+  device_ip = var.device_ip
 }
