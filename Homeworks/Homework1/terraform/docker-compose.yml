@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  terraform:
+    build: ./terraform
+    volumes:
+      - .:/app
+      - ~/.aws:/root/.aws:ro
+    working_dir: /app
+    entrypoint: ["terraform"]
+    command: ["apply", "-auto-approve"]
+    env_file:
+      - docker/terraform/.env
+
+
+  web_service:
+    build: ./web_service
+    ports:
+      - "80:80"

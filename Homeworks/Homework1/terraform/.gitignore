@@ -1,10 +1,6 @@
-docker_sql/.ipynb_checkpoints/
-ny_taxi_postgres_data/
-*.csv
-*.parquet
-.idea/
 .terraform/
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/.terraform.lock.hcl
+.idea/
 .env
