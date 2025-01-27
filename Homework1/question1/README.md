@@ -12,4 +12,4 @@ exit
 
 Version of pip is: 24.3.1
 
-![Question 1](./screenshots/pip_version.jpg)
+![Question 1](../screenshots/pip_version.jpg)
