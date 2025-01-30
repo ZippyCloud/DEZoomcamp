@@ -1,5 +1,6 @@
 docker_sql/.ipynb_checkpoints/
-ny_taxi_postgres_data/
+docker_sql/ny_taxi_postgres_data/
+postgres-pgadmin/postgres-mount/
 *.csv
 *.parquet
 .idea/
