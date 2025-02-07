@@ -42,7 +42,7 @@ def ingest_data(user: str, password: str, host: str, port: str, database: str, t
         sys.exit()
 
     print("\n\nStarting data ingestion...\n")
-    df.head(0).to_sql(name=table, con=engine, if_exists="replace")
+    df.head(0).to_sql(name=table, con=engine, if_exists="append")
     start_time = time()
     batch_count = 0
     for batch in df_iterator:
@@ -75,11 +75,11 @@ def main(params):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ingest data to a database')
-    parser.add_argument('--user', type=str, help='Database username', default="root")
-    parser.add_argument('--password', type=str, help='Database password', default="root")
+    parser.add_argument('--user', type=str, help='Database username', default="kestra")
+    parser.add_argument('--password', type=str, help='Database password', default="k3str4")
     parser.add_argument('--host', type=str, help='Database host', default="postgres")
     parser.add_argument('--port', type=int, help='Database port', default=5432)
-    parser.add_argument('--database', type=str, help='Database name', default="my-database")
+    parser.add_argument('--database', type=str, help='Database name', default="postgres")
     parser.add_argument('--table', type=str, help='Table name')
     parser.add_argument('--url', type=str, help='URL of the file to ingest')
     args = parser.parse_args()
